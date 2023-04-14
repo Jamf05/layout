@@ -1,5 +1,6 @@
 import 'package:layout/src/breakpoint.dart';
 import 'package:layout/src/format.dart';
+import 'package:layout/src/pixel.dart';
 import 'package:layout/src/value.dart';
 
 class MaterialLayoutFormat extends LayoutFormat {
@@ -8,6 +9,9 @@ class MaterialLayoutFormat extends LayoutFormat {
     LayoutValue<double>? gutter,
   })  : this.margin = margin ?? _defaultMargin,
         this.gutter = gutter ?? _defaultMargin;
+
+  @override
+  final LayoutPixelFormat pixel = LayoutPixelFormat.logical;
 
   @override
   final LayoutValue<double> gutter;

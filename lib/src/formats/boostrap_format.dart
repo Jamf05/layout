@@ -1,11 +1,15 @@
 import 'package:layout/src/breakpoint.dart';
 import 'package:layout/src/format.dart';
+import 'package:layout/src/pixel.dart';
 import 'package:layout/src/value.dart';
 
 class BoostrapLayoutFormat extends LayoutFormat {
   BoostrapLayoutFormat({
     LayoutValue<double>? margin,
   }) : this.margin = margin ?? const ConstantLayoutValue(0);
+
+  @override
+  final LayoutPixelFormat pixel = LayoutPixelFormat.logical;
 
   @override
   final LayoutValue<double> gutter = const ConstantLayoutValue(30.0);

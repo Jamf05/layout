@@ -2,12 +2,20 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:layout/src/layout.dart';
+import 'package:layout/src/pixel.dart';
 import 'package:layout/src/value.dart';
 
 import 'breakpoint.dart';
 
 abstract class LayoutFormat {
   const LayoutFormat();
+
+  /// The size of the media in logical pixels (e.g, the size of the screen).
+  /// Logical pixels are roughly the same visual size across devices.
+  /// Physical pixels are the size of the actual hardware pixels on the device.
+  /// A [pixel] defines whether to use physical or logical pixels.
+
+  final LayoutPixelFormat pixel = LayoutPixelFormat.physical;
 
   /// A breakpoint is the range of predetermined screen sizes that have specific
   /// layout requirements. At a given breakpoint range, the layout adjusts
@@ -39,6 +47,15 @@ abstract class LayoutFormat {
 
   VisualDensity visualDensity(BuildContext context) {
     return Theme.of(context).visualDensity;
+  }
+
+  Size resolveSize(Size layoutSize, MediaQueryData mediaQuery) {
+    switch (pixel) {
+      case LayoutPixelFormat.logical:
+        return layoutSize;
+      case LayoutPixelFormat.physical:
+        return layoutSize * mediaQuery.devicePixelRatio;
+    }
   }
 
   LayoutData resolve(

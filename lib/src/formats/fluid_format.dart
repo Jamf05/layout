@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:layout/src/breakpoint.dart';
+import 'package:layout/src/pixel.dart';
 import 'package:layout/src/value.dart';
 
 import '../format.dart';
@@ -9,6 +10,9 @@ class FluidLayoutFormat extends LayoutFormat {
   FluidLayoutFormat({
     LayoutValue<double>? margin,
   }) : this.margin = margin ?? _defaultMargin;
+
+  @override
+  final LayoutPixelFormat pixel = LayoutPixelFormat.logical;
 
   @override
   LayoutValue<double> get maxWidth {

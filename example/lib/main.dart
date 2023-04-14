@@ -1,4 +1,5 @@
 import 'package:example/layout_bar.dart';
+import 'package:example/physical_vs_logical_layout_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:layout/layout.dart';
 
@@ -13,6 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Layout(
+      format: PhysicalPixelLayoutFormat(),
       child: MaterialApp(
           title: 'Flutter Demo',
           debugShowCheckedModeBanner: false,
@@ -26,7 +28,11 @@ class MyApp extends StatelessWidget {
           builder: (context, child) {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [Expanded(child: child!), LayoutBar()],
+              children: [
+                Expanded(child: child!),
+                LayoutBar(),
+                PhysicalVSLogicalLayoutBar(),
+              ],
             );
           },
           home: MyHomePage(title: 'Layout')),

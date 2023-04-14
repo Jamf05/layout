@@ -138,7 +138,8 @@ class _LayoutState extends State<Layout> {
               WidgetsBinding.instance.window,
             );
         final visualDensity = format.visualDensity(context);
-        final LayoutData data = format.resolve(size, mediaQuery, visualDensity);
+        final LayoutData data = format.resolve(
+            format.resolveSize(size, mediaQuery), mediaQuery, visualDensity);
         return _LayoutInheritedWidget(
           key: _key,
           child: widget.child,
