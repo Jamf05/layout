@@ -22,7 +22,7 @@ class LandscapePhysicalPixelLayoutFormat extends LayoutFormat {
   @override
   final Map<LayoutBreakpoint, double> breakpoints = {
     LayoutBreakpoint.xs: 854, // FWVGA
-    LayoutBreakpoint.sm: 1280, // HD
+    LayoutBreakpoint.sm: 1180, // HD
     LayoutBreakpoint.md: 1920, // FHD
     LayoutBreakpoint.lg: 2436, //
     LayoutBreakpoint.xl: 2960, // QHD
@@ -31,7 +31,7 @@ class LandscapePhysicalPixelLayoutFormat extends LayoutFormat {
   @override
   final LayoutValue<double> maxWidth = BreakpointValue.all(
     xs: 854,
-    sm: 1280,
+    sm: 1180,
     md: 1920,
     lg: 2436,
     xl: 2960,
