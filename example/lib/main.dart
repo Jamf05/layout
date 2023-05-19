@@ -13,29 +13,34 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return Layout(
-      format: PhysicalPixelLayoutFormat(),
-      child: MaterialApp(
-          title: 'Flutter Demo',
-          debugShowCheckedModeBanner: false,
-          theme: ThemeData(
-            appBarTheme: AppBarTheme(
-              color: Colors.white,
+    return OrientationBuilder(
+        builder: (BuildContext context, Orientation orientation) {
+      return Layout(
+        format: orientation == Orientation.portrait
+            ? PortraitPhysicalPixelLayoutFormat()
+            : LandscapePhysicalPixelLayoutFormat(),
+        child: MaterialApp(
+            title: 'Flutter Demo',
+            debugShowCheckedModeBanner: false,
+            theme: ThemeData(
+              appBarTheme: AppBarTheme(
+                color: Colors.white,
+              ),
+              scaffoldBackgroundColor: Colors.grey[200],
+              primarySwatch: Colors.blue,
             ),
-            scaffoldBackgroundColor: Colors.grey[200],
-            primarySwatch: Colors.blue,
-          ),
-          builder: (context, child) {
-            return Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Expanded(child: child!),
-                LayoutBar(),
-                PhysicalVSLogicalLayoutBar(),
-              ],
-            );
-          },
-          home: MyHomePage(title: 'Layout')),
-    );
+            builder: (context, child) {
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Expanded(child: child!),
+                  LayoutBar(),
+                  PhysicalVSLogicalLayoutBar(),
+                ],
+              );
+            },
+            home: MyHomePage(title: 'Layout')),
+      );
+    });
   }
 }
