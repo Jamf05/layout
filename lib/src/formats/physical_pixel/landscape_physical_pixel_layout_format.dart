@@ -3,8 +3,8 @@ import 'package:layout/src/format.dart';
 import 'package:layout/src/pixel.dart';
 import 'package:layout/src/value.dart';
 
-class PhysicalPixelLayoutFormat extends LayoutFormat {
-  PhysicalPixelLayoutFormat({
+class LandscapePhysicalPixelLayoutFormat extends LayoutFormat {
+  LandscapePhysicalPixelLayoutFormat({
     LayoutValue<double>? margin,
     LayoutValue<double>? gutter,
   })  : this.margin = margin ?? const ConstantLayoutValue(0),
@@ -21,19 +21,19 @@ class PhysicalPixelLayoutFormat extends LayoutFormat {
 
   @override
   final Map<LayoutBreakpoint, double> breakpoints = {
-    LayoutBreakpoint.xs: 0,
-    LayoutBreakpoint.sm: 414, // QHD
-    LayoutBreakpoint.md: 768, // HD
-    LayoutBreakpoint.lg: 1080, // FHD
-    LayoutBreakpoint.xl: 1440, // 2K
+    LayoutBreakpoint.xs: 854, // FWVGA
+    LayoutBreakpoint.sm: 1180, // HD
+    LayoutBreakpoint.md: 1920, // FHD
+    LayoutBreakpoint.lg: 2436, //
+    LayoutBreakpoint.xl: 2960, // QHD
   };
 
   @override
   final LayoutValue<double> maxWidth = BreakpointValue.all(
-    xs: 200,
-    sm: 414,
-    md: 768,
-    lg: 1080,
-    xl: 1440,
+    xs: 854,
+    sm: 1180,
+    md: 1920,
+    lg: 2436,
+    xl: 2960,
   );
 }

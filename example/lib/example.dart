@@ -31,7 +31,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final alwaysDisplayDrawer = context.layout.breakpoint > LayoutBreakpoint.sm;
+    final alwaysDisplayDrawer = context.layout.breakpoint > LayoutBreakpoint.xl;
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(color: Colors.black),
