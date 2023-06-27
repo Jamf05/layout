@@ -24,7 +24,7 @@ class LandscapePhysicalPixelLayoutFormat extends LayoutFormat {
     LayoutBreakpoint.xs: 854, // FWVGA
     LayoutBreakpoint.sm: 1280, // HD
     LayoutBreakpoint.md: 1920, // FHD
-    LayoutBreakpoint.lg: 2436, //
+    LayoutBreakpoint.lg: 2260, //
     LayoutBreakpoint.xl: 2960, // QHD
   };
 
@@ -33,7 +33,7 @@ class LandscapePhysicalPixelLayoutFormat extends LayoutFormat {
     xs: 854,
     sm: 1280,
     md: 1920,
-    lg: 2436,
+    lg: 2260,
     xl: 2960,
   );
 }
